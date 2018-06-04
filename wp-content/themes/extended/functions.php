@@ -46,4 +46,10 @@ $args = array(
 
 register_sidebar( $args );
 
+register_nav_menus([
+    'header-menu' => 'меню в шапке',
+    'footer-menu' => 'меню в футере'
+]);
+
+
 

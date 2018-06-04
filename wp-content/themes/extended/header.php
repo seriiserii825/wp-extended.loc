@@ -19,16 +19,15 @@
             <?php endif; ?>
         </div>
         <div class="menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="#">The Team</a></li>
-                <li><a href="#">Testimonials</a></li>
-                <li><a href="our-work.html">Our Work</a></li>
-                <li><a href="#">Our Videos</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>    
+            <?php wp_nav_menu( array(
+                'theme_location'  => 'header-menu',
+                'container'       => '',
+                'container_id'    => '',
+                'menu_class'      => '',
+                'before'          => '',
+                'after'           => '',
+            ) ); ?>
+            
             <div class="serach">
                 <form action="">
                     <input class="search-txt" type="text" value="Search" onBlur="if(this.value=='')this.value='Search'" onFocus="if(this.value=='Search')this.value=''" />

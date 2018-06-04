@@ -1,11 +1,18 @@
 <div class="footer">
         <p class="copy">Copyright 2012. All Right Reserved MonkeeThemes.</p>
-        <p class="ftrmenu">
+
+        <?php wp_nav_menu( array(
+            'theme_location'  => 'footer-menu',
+            'menu'            => '',
+            'container_class' => 'ftrmenu',
+            'menu_class'      => '',
+        ) ); ?>
+        <!--<p class="ftrmenu">
             <a href="#">Home</a> |     
             <a href="#">About</a> |     
             <a href="#">Sitemap</a> |     
             <a href="#">Contact</a>
-        </p> 
+        </p> -->
     </div>
 </div>
 <?php wp_footer(); ?>

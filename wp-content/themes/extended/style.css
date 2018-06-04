@@ -216,6 +216,15 @@ body{
 	.ftrmenu{
 		float:right;
 	}
+
+	.ftrmenu li {
+		display: inline;
+		border-right: 1px solid #ccc;
+	}
+
+	.ftrmenu li:last-child {
+		border: none;
+	}
 		.ftrmenu a{
 			 color:#707070; margin:0 10px;
 		}
