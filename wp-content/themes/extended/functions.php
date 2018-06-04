@@ -3,6 +3,23 @@
 add_action( 'wp_enqueue_scripts', 'extended_load_scripts' );
 add_action('after_setup_theme', 'extended_setup_theme');
 add_action('admin_init', 'create_phone_field');
+add_action('init', 'register_slider_type');
+
+function register_slider_type(){
+    register_post_type( 'slider', [
+        'supports' => ['title', 'editor', 'thumbnail'],
+        'public' => true,
+        'labels' => [
+            'name'               => __( 'Слайдер', 'Слайды' ),
+            'singular_name'      => __( 'Слайдер', 'Слайдер' ),
+            'add_new'            => 'Добавить новый',
+            'add_new_item'       => 'Добавить новый',
+            'new_item'           => 'Добавить новый слайд',
+            'menu_name'          => 'Слайдер'
+        ]
+
+    ] );
+}
 
 function create_phone_field(){
     register_setting( 'general', 'phone' );
@@ -16,6 +33,7 @@ function phone_cb(){
 
 function extended_setup_theme(){
     add_theme_support( 'title-tag' );
+    add_theme_support( 'post-thumbnails' );
 }
 
 function extended_load_scripts(){

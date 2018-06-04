@@ -3,46 +3,23 @@
        <div class="slider">
         <div class="flexslider">
           <ul class="slides">
-            <li>
-                <div class="slide-content">
-                    <h1>Super Powerful Theme,<br />
-    With High Quality Standards</h1> 
-                    <h3>Multi-Purpose Business WordPress Theme</h3>
-                    <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id<br /> nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,<br /> egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>    
-                    <p><a href="#"><img src="<?php bloginfo('template_url'); ?>/images/slide-btn.png" /></a></p>
-                </div>
-                <img src="<?php bloginfo('template_url'); ?>/images/slide1.jpg" />
-            </li>
-            <li>
-                <div class="slide-content">
-                    <h1>Super Powerful Theme,<br />
-    With High Quality Standards</h1> 
-                    <h3>Multi-Purpose Business WordPress Theme</h3>
-                    <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id<br /> nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,<br /> egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>    
-                    <p><a href="#"><img src="<?php bloginfo('template_url'); ?>/images/slide-btn.png" /></a></p>
-                </div>
-                <img src="<?php bloginfo('template_url'); ?>/images/slide1.jpg" />
-            </li>
-            <li>
-                <div class="slide-content">
-                    <h1>Super Powerful Theme,<br />
-    With High Quality Standards</h1> 
-                    <h3>Multi-Purpose Business WordPress Theme</h3>
-                    <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id<br /> nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,<br /> egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>    
-                    <p><a href="#"><img src="<?php bloginfo('template_url'); ?>/images/slide-btn.png" /></a></p>
-                </div>
-                <img src="<?php bloginfo('template_url'); ?>/images/slide1.jpg" />
-            </li>
-            <li>
-                <div class="slide-content">
-                    <h1>Super Powerful Theme,<br />
-    With High Quality Standards</h1> 
-                    <h3>Multi-Purpose Business WordPress Theme</h3>
-                    <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id<br /> nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,<br /> egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>    
-                    <p><a href="#"><img src="<?php bloginfo('template_url'); ?>/images/slide-btn.png" /></a></p>
-                </div>
-                <img src="<?php bloginfo('template_url'); ?>/images/slide1.jpg" />
-            </li>
+            <?php $slider_index = new WP_Query([
+                    'post_type' => 'slider'
+                ]);?>
+
+            <?php if ( $slider_index->have_posts() ) : while ( $slider_index->have_posts() ) : $slider_index->the_post(); ?>
+                <li>
+                    <div class="slide-content">
+                        <?php the_content(); ?>
+                    </div>
+                    <img src="<?php bloginfo('template_url'); ?>/images/slide1.jpg" />
+                </li>              
+              <?php endwhile; ?>
+              <!-- post navigation -->
+              <?php else: ?>
+              <!-- no posts found -->
+            <?php endif; ?>
+            
           </ul>
         </div>
       </div>
