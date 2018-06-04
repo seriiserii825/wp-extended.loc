@@ -154,7 +154,16 @@ body{
 	.whatwedo div p{
 		font-size:13px;
 	}
+
+	.whatwedo a {
+		text-decoration: underline;
+		color: #d7a229;
+	}
 	
+	.whatwedo a:hover {
+		text-decoration: none;
+	}
+
 .center-n{
 	text-align:center; font:24px "Droid Serif"; background:url(images/naklon-bg.jpg) center repeat-x; position:relative; margin-bottom:45px;
 }

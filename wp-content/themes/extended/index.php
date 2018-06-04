@@ -35,7 +35,24 @@
     </div>
     
     <div class="content-main">
-        <div class="whatwedo">
+        <?php 
+            $id = 3;
+            $posts_about = new WP_Query(['cat' => $id, 'posts_per_page' => 4, 'order' => 'ASC']); 
+        ?>
+        
+        <?php if ( $posts_about->have_posts() ) : ?> 
+            <div class="whatwedo">
+                <?php while ( $posts_about->have_posts() ) : $posts_about->the_post(); ?>
+                    <div>
+                        <h1><span><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span></h1>
+                        <p><?php the_excerpt(); ?></p>
+                    </div>     
+                <?php endwhile; ?>
+            </div>
+            <?php else: ?>
+            <!-- no posts found -->
+        <?php endif; ?>
+       <!-- <div class="whatwedo">
             <div>
                 <h1><span>Flexibility</span></h1>
                 <p>Fusce dapibus, tellus ac cursus como, tortor mauris condimentum nibh, ut fermentum massa justo sit amet isus.</p>
@@ -52,7 +69,7 @@
                 <h1><span>Drag Modules</span></h1>
                 <p>Fusce dapibus, tellus ac cursus como, tortor mauris condimentum nibh, ut fermentum massa justo sit amet isus.</p>
             </div>       
-        </div>
+        </div>-->
         
         <h1 class="center-n"><span class="hnc">Our Latest Work</span> <span class="hnl">/ <a href="#">View All Portfolio</a></span></h1> 
         <div class="our-works-main">

@@ -8,7 +8,7 @@
 <body>
 <div class="karkas">
     <div class="header">
-        <a href="#"><img class="logo" src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="Extendet" /></a>
+        <a href="<?php echo home_url(); ?>"><img class="logo" src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="Extendet" /></a>
         <p class="head-contakt">
             <img src="<?php bloginfo('template_url'); ?>/images/head-mail.png" alt="" /> <a href="mailto:<?php bloginfo('admin_email'); ?>"><?php bloginfo('admin_email'); ?></a>&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php bloginfo('template_url'); ?>/images/head-mail.png" alt="" /> <?php echo get_option( 'phone' ); ?>
 
