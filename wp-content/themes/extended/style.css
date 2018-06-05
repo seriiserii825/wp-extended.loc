@@ -325,13 +325,18 @@ body{
 .pager{
 	list-style:none; overflow:hidden; float:right;
 }
-	.pager li{
+	.pager li,
+	.pager span,
+	.pager a{
 		float:left; font:bold 14px pr_sans;
 	}
-	.pager li a{
+	.pager li a,
+	.pager span,
+	.pager a{
 		color:#363636; display:block; padding:5px 10px; 
 	}
-	.pager li a.now{
+	.pager li a.now,
+	.pager span.current{
 		background:#d7a229; color:#fff; margin:0 10px;
 	}
 	
