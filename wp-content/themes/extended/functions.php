@@ -72,6 +72,16 @@ register_sidebar( [
     'after_widget'  => ''
 ] );
 
+register_sidebar( [
+    'name'          => 'Сайдбар портфолио сингле',
+    'id'            => 'single_portfolio',
+    'description'   => 'Добавьте виджеты для сайдбара страницы portfolio',
+    'before_widget' => '',
+    'after_widget'  => '',
+    'before_title' => '<h3><span>',
+    'after_title' => '</span></h3>'
+] );
+
 register_nav_menus([
     'header-menu' => 'меню в шапке',
     'footer-menu' => 'меню в футере'
