@@ -92,5 +92,36 @@ function my_list_tags(){
     echo $tag_str;
 }
 
+function get_tags_in_cat($cat_id){
+
+    $category_posts = get_posts(['category' => $cat_id, 'numberposts' => -1]);
+    $tags_obj = [];
+    $tags_list = [];
+    
+    if(empty($category_posts)){
+        return false;
+    }
+
+    foreach ($category_posts as $post) {
+        $tags_obj[] = get_the_tags($post->ID);
+    }
+
+    if(empty($tags_obj)){
+        return false;
+    }
+
+    foreach ($tags_obj as $value) {
+        if($value[0]){
+            $tags_list[$value[0]->term_id] = $value[0]->name;
+        }
+    }
+
+    if(!empty($tags_list)){
+        return $tags_list;
+    }
+
+    return false;
+}
+
 
 

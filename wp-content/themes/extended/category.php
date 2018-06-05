@@ -5,17 +5,25 @@
         <p class="page-title-map"><a href="<?php echo home_url(); ?>">Home</a>  /  <?php single_cat_title(); ?></p>
     </div>
     
-    <div class="page-nav">
-        <ul>
-            <li><a href="#">All</a></li>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Logo</a></li>
-            <li><a href="#">Branding</a></li>
-            <li><a href="#">Print</a></li>
-            <li><a href="#">Photography</a></li>
-        </ul>
-    </div>
+    <?php 
+
+        $cat_id = get_query_var( 'cat' );
+
+        $tags = get_tags_in_cat($cat_id);
+     ?>
+
+     <?php if($tags): ?>
+
+        <div class="page-nav">
+
+            <ul>            
+                <?php foreach ($tags as $key => $value) : ?>
+                    <li><a href="<?php echo get_tag_link($key); ?>"><?php echo $value; ?></a></li>        
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+     <?php endif; ?>
 
     <?php if ( have_posts() ) : ?> 
       <div class="content-main">
