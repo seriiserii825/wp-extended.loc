@@ -1,3 +1,11 @@
+<?php 
+
+  if(in_category( 'our-work' )){
+    include __DIR__ . '/portfolio.php';
+    exit;
+  }
+
+?>
 <?php get_header(); ?>
 <div class="page-title">
     <?php $category = get_the_category(); ?>
