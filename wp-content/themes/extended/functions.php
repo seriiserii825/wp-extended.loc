@@ -64,6 +64,14 @@ $args = array(
 
 register_sidebar( $args );
 
+register_sidebar( [
+    'name'          => 'Клиенты',
+    'id'            => 'clients',
+    'description'   => 'Добавьте картинки клиентов через виджет html',
+    'before_widget' => '',
+    'after_widget'  => ''
+] );
+
 register_nav_menus([
     'header-menu' => 'меню в шапке',
     'footer-menu' => 'меню в футере'
