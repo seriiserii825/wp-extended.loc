@@ -69,5 +69,20 @@ register_nav_menus([
     'footer-menu' => 'меню в футере'
 ]);
 
+function my_list_tags(){
+    $tags = get_the_tags();
+    $tag_str = null;
+
+    if($tags){
+        foreach ($tags as $tag) {
+            $tag_str .= $tag->name . ', ';       
+        }
+    }
+
+    $tag_str = rtrim($tag_str, ', ');
+
+    echo $tag_str;
+}
+
 
 
