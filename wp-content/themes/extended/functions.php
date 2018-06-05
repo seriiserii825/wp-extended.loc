@@ -87,7 +87,7 @@ register_nav_menus([
     'footer-menu' => 'меню в футере'
 ]);
 
-function my_list_tags(){
+function my_list_tags($echo=true){
     $tags = get_the_tags();
     $tag_str = null;
 
@@ -99,7 +99,11 @@ function my_list_tags(){
 
     $tag_str = rtrim($tag_str, ', ');
 
-    echo $tag_str;
+    if($echo){
+        echo $tag_str;
+    }else{
+        return $tag_str;
+    }
 }
 
 function get_tags_in_cat($cat_id){
