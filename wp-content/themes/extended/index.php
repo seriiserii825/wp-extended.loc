@@ -87,40 +87,51 @@
         <?php endif; ?>
         
         <div class="advance">
-            
-            <div class="why-us">
-                <!-- Accordion -->
-                <h1 class="center-n"><span class="hnc">Why Choose Us</span></h1>
-                <div id="accordion">
-                    <h3>Accordion Title 1</h3>
-                    <div>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna.</div>
-                    
-                    <h3>Accordion Title 2</h3>
-                    <div>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna.</div>
-                    
-                    <h3>Accordion Title 3</h3>
-                    <div>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna.</div>                    
+
+            <?php 
+                $id = 11;
+                $posts_accordeon = new WP_Query(['cat' => $id, 'posts_per_page' => 3, 'order' => 'ASC']); 
+            ?>
+
+            <?php if ( $posts_accordeon->have_posts() ) : ?> 
+                <div class="why-us">
+                    <h1 class="center-n"><span class="hnc">Why Choose Us</span></h1>
+                    <div id="accordion">    
+                      <?php while ( $posts_accordeon->have_posts() ) : $posts_accordeon->the_post(); ?>
+                        <h3><?php the_title(); ?></h3>
+                        <div><?php the_content(); ?></div>
+                      <?php endwhile; ?>
+                    </div>
                 </div>
+              <?php else: ?>
+                <h1 class="center-n"><span class="hnc">Записи в формате аккордеон</span></h1>
+            <?php endif; ?>
             
-            </div>
+            <?php 
+                $id = 12;
+                $posts_tabs = new WP_Query(['cat' => $id, 'posts_per_page' => 4, 'order' => 'ASC']); 
+            ?>      
+
+            <?php if ( $posts_tabs->have_posts() ) : ?> 
+                <div class="our-services"> 
+                    <h1 class="center-n"><span class="hnc">Our Services</span></h1>
+                    <div id="tabs">                 
+                        <ul>
+                            <?php while ( $posts_tabs->have_posts() ) : $posts_tabs->the_post(); ?>
+                                <li><a href="#tabs-<?php the_ID();?>"><?php the_title(); ?></a></li>
+                            <?php endwhile; ?>
+                        </ul>
+                        
+                        <?php while ( $posts_tabs->have_posts() ) : $posts_tabs->the_post(); ?>
+                            <div id="tabs-<?php the_ID();?>"><?php the_content(); ?></div>    
+                        <?php endwhile; ?>
+
+                    </div>
+                </div>
+                <?php else: ?>
+                <h1 class="center-n"><span class="hnc">Записи в формате вкладок</span></h1>
+              <?php endif; ?>      
            
-           <div class="our-services"> 
-                <!-- Tabs -->
-                <h1 class="center-n"><span class="hnc">Our Services</span></h1>
-                <div id="tabs">                 
-                    <ul>
-                        <li><a href="#tabs-1">Tab Title 1</a></li>
-                        <li><a href="#tabs-2">Tab Title 2</a></li>
-                        <li><a href="#tabs-3">Tab Title 3</a></li>
-                        <li><a href="#tabs-4">Tab Title 4</a></li>
-                    </ul>
-                    <div id="tabs-1"><img class="img-righter" src="<?php bloginfo('template_url'); ?>/images/tabs-img1.jpg" alt="" />Cum sociis natoque penatibus et magnis dis partent montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis disamet non magna.</div>
-                    <div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
-                    <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
-                    <div id="tabs-4">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
-                </div>
-            </div>
-        
         </div>
            
     </div>
