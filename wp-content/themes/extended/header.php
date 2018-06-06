@@ -30,7 +30,7 @@
             
             <div class="serach">
                 <form action="">
-                    <input class="search-txt" type="text" value="Search" onBlur="if(this.value=='')this.value='Search'" onFocus="if(this.value=='Search')this.value=''" />
+                    <input name="s" class="search-txt" type="text" value="Search" onBlur="if(this.value=='')this.value='Search'" onFocus="if(this.value=='Search')this.value=''" />
                     <input type="image" src="<?php bloginfo('template_url'); ?>/images/search-bg.png" name="go" />
                 </form>
             </div>
